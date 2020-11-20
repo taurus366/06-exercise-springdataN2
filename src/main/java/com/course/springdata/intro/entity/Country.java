@@ -12,4 +12,27 @@ public class Country extends BaseEntity{
 
     @OneToMany(mappedBy = "country",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<Town> townSet = new HashSet<>();
+
+    public Country(String name) {
+        this.name = name;
+    }
+
+    public Country() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Town> getTownSet() {
+        return townSet;
+    }
+
+    public void setTownSet(Set<Town> townSet) {
+        this.townSet = townSet;
+    }
 }

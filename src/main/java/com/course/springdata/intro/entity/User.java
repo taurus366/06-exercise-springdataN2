@@ -6,7 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -24,19 +26,19 @@ public class User extends BaseEntity{
     private String lastName;
 
 
-    @NotNull
-    @Size(min = 6,max = 50)
+
+    @Size(min = 6,max = 40)
     private String password;
 
     @NotNull
-    @Email
+    @Email(regexp = "^([a-z0-9]+[_a-z0-9\\.-]*[a-z0-9]+)@([a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.[a-z]{2,4})$")
     private String email;
 
     @Column(name = "registered_on")
-    private Date registeredOn;
+    private LocalDate registeredOn;
 
     @Column(name = "last_time_logged_in")
-    private Date lastTimeLoggedIn;
+    private LocalDate lastTimeLoggedIn;
 
     @Range(min = 1,max = 120)
     private int age;
@@ -63,7 +65,7 @@ public class User extends BaseEntity{
     public User() {
     }
 
-    public User(@NotNull @Size(min = 4, max = 30) String username, String firstName, String lastName, @NotNull @Size(min = 6, max = 50) String password, @NotNull String email, Date registeredOn, Date lastTimeLoggedIn, @Range(min = 1, max = 120) int age, Boolean isDeleted, Set<User> friends, Town bornTown, Town livingTown, Set<Album> albums) {
+    public User(@NotNull @Size(min = 4, max = 30) String username, String firstName, String lastName, @NotNull @Size(min = 6, max = 50) String password, @NotNull String email, LocalDate registeredOn, LocalDate lastTimeLoggedIn, @Range(min = 1, max = 120) int age, Boolean isDeleted, Set<User> friends, Town bornTown, Town livingTown, Set<Album> albums) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -119,19 +121,19 @@ public class User extends BaseEntity{
         this.email = email;
     }
 
-    public Date getRegisteredOn() {
+    public LocalDate getRegisteredOn() {
         return registeredOn;
     }
 
-    public void setRegisteredOn(Date registeredOn) {
+    public void setRegisteredOn(LocalDate registeredOn) {
         this.registeredOn = registeredOn;
     }
 
-    public Date getLastTimeLoggedIn() {
+    public LocalDate getLastTimeLoggedIn() {
         return lastTimeLoggedIn;
     }
 
-    public void setLastTimeLoggedIn(Date lastTimeLoggedIn) {
+    public void setLastTimeLoggedIn(LocalDate lastTimeLoggedIn) {
         this.lastTimeLoggedIn = lastTimeLoggedIn;
     }
 

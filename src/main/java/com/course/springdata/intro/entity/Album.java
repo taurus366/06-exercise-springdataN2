@@ -20,4 +20,47 @@ public class Album extends BaseEntity{
 
     @ManyToOne()
     private User user;
+
+    public Album() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Color getBackroundColor() {
+        return backroundColor;
+    }
+
+    public void setBackroundColor(Color backroundColor) {
+        this.backroundColor = backroundColor;
+    }
+
+    public Boolean getPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(Boolean aPublic) {
+        isPublic = aPublic;
+    }
+
+    public Set<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(Set<Picture> pictures) {
+        this.pictures = pictures;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
