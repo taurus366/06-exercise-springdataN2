@@ -29,8 +29,8 @@ public class TownServiceImpl implements TownService {
     public void seedTown(Town town , Country country) {
         town.setCountry(country);
 
-        country.getTownSet().add(town);
-        countryService.seedCountry(country);
+       // country.getTownSet().add(town);
+        //countryService.seedCountry(country);
 
         repository.saveAndFlush(town);
     }

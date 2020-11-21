@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
             user.setBornTown(bornTown);
             user.getAlbums().add(album);
 
-
+            townService.seedTown(livingTown, livingTown.getCountry());
 
 
         repository.saveAndFlush(user);
